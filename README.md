@@ -1,6 +1,6 @@
 # starter-snake-python
 
-A simple [Battlesnake AI](http://battlesnake.io) written in Python. 
+A simple [Battlesnake AI](http://battlesnake.io) written in Python! 
 
 Visit [https://github.com/battlesnakeio/community/blob/master/starter-snakes.md](https://github.com/battlesnakeio/community/blob/master/starter-snakes.md) for API documentation and instructions for running your AI.
 
