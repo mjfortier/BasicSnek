@@ -34,3 +34,20 @@ def Dijkstra(board, nuggets, start):
                 if node.dist > current.dist + node.weight:
                     node.dist = current.dist + node.weight
                     node.prev = current
+
+    nuggets.sort(key=lambda x: x.dist)
+    nextNugget = nuggets[0]
+    nextNode = nextNugget
+    path = []
+    while nextNode is not start:
+        path.insert(0, nextNode)
+        nextNode = nextNode.prev
+    nextNode = path.pop(0)
+    if nextNode.x > start.x:
+        return "right"
+    elif nextNode.x < start.x:
+        return "left"
+    elif nextNode.y > start.y:
+        return "down"
+    else:
+        return "up"
