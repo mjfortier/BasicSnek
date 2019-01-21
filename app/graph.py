@@ -40,6 +40,8 @@ class Board:
         self.height = data["board"]["height"]
         self.width = data["board"]["width"]
         self.board = []
+        self.nuggets = []
+        self.head = None
 
         for y in range(self.height):
             row = []
@@ -57,8 +59,10 @@ class Board:
             for node in row:
                 node.type = NodeType.EMPTY
 
+        self.nuggets = []
         for nugget in data["board"]["food"]:
             self.getNode(nugget["x"], nugget["y"]).type = NodeType.NUGGET
+            self.nuggets.append(self.getNode(nugget["x"], nugget["y"]))
 
         for snake in data["board"]["snakes"]:
             for body in snake["body"]:
@@ -66,6 +70,7 @@ class Board:
         
         head = data["you"]["body"][0]
         self.getNode(head["x"], head["y"]).type = NodeType.HEAD
+        self.head = self.getNode(head["x"], head["y"])
 
         for y, row in enumerate(self.board):
             for x, node in enumerate(row):

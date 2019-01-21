@@ -67,11 +67,15 @@ def move():
     gameContent["board"].updateBoard(data)
     gameContent["board"].printBoard()
 
+
+
     print(json.dumps(data))
 
 
-    directions = ['up', 'down', 'left', 'right']
-    direction = random.choice(directions)
+    # directions = ['up', 'down', 'left', 'right']
+    # direction = random.choice(directions)
+    game = gameContent["board"]
+    direction = Dijkstra(game.board, game.nuggets, game.head)
 
     return move_response(direction)
 
