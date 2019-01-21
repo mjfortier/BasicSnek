@@ -7,6 +7,10 @@ import bottle
 
 from api import ping_response, start_response, move_response, end_response
 
+gameContent = {
+    'board': None
+}
+
 @bottle.route('/')
 def index():
     return '''
@@ -41,6 +45,9 @@ def start():
             initialize your snake state here using the
             request's data if necessary.
     """
+    gameContent["board"] = Board(data)
+    gameContent["board"].printBoard()
+
     print(json.dumps(data))
 
     color = "#00FF00"
@@ -56,7 +63,12 @@ def move():
     TODO: Using the data from the endpoint request object, your
             snake AI must choose a direction to move in.
     """
+    
+    gameContent["board"].updateBoard(data)
+    gameContent["board"].printBoard()
+
     print(json.dumps(data))
+
 
     directions = ['up', 'down', 'left', 'right']
     direction = random.choice(directions)
