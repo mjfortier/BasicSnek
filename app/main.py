@@ -46,9 +46,9 @@ def start():
             request's data if necessary.
     """
     gameContent["board"] = Board(data)
-    gameContent["board"].printBoard()
+    # gameContent["board"].printBoard()
 
-    print(json.dumps(data))
+    # print(json.dumps(data))
 
     color = "#00FF00"
 
@@ -65,11 +65,11 @@ def move():
     """
     
     gameContent["board"].updateBoard(data)
-    gameContent["board"].printBoard()
+    # gameContent["board"].printBoard()
 
 
 
-    print(json.dumps(data))
+    # print(json.dumps(data))
 
 
     # directions = ['up', 'down', 'left', 'right']
@@ -88,7 +88,7 @@ def end():
     TODO: If your snake AI was stateful,
         clean up any stateful objects here.
     """
-    print(json.dumps(data))
+    # print(json.dumps(data))
 
     return end_response()
 

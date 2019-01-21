@@ -36,6 +36,8 @@ def Dijkstra(board, nuggets, start):
                     node.prev = current
 
     nuggets.sort(key=lambda x: x.dist)
+    if nuggets[0].dist == math.inf:
+        return "down"
     nextNugget = nuggets[0]
     nextNode = nextNugget
     path = []

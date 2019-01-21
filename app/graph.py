@@ -21,17 +21,18 @@ class Node:
     def setAdjList(self, board):
         x = self.x
         y = self.y
-        
-        if y-1 > -1 and board.getNode(x,y-1) != NodeType.SNAKE:
+        self.adj = []
+
+        if y-1 > -1 and not board.getNode(x,y-1).type == NodeType.SNAKE:
             self.adj.append(board.getNode(x,y-1))
 
-        if x+1 < board.getWidth() and board.getNode(x+1, y) != NodeType.SNAKE:
+        if x+1 < board.getWidth() and not board.getNode(x+1, y).type == NodeType.SNAKE:
             self.adj.append(board.getNode(x+1, y))
 
-        if y+1 < board.getHeight() and board.getNode(x, y+1) != NodeType.SNAKE:
+        if y+1 < board.getHeight() and not board.getNode(x, y+1).type == NodeType.SNAKE:
             self.adj.append(board.getNode(x, y+1))
 
-        if x-1 > -1 and board.getNode(x-1, y) != NodeType.SNAKE:
+        if x-1 > -1 and not board.getNode(x-1, y).type == NodeType.SNAKE:
             self.adj.append(board.getNode(x-1, y))
 
 
